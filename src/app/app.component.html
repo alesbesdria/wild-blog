@@ -1,16 +1,46 @@
 <style>
+  a{
+    text-decoration: none;
+    color: black;
+  }
+  header{
+    display: flex;
+    justify-content: space-between;
+  }
+  ul{
+    margin-right: 5px;
+    font-size: 20px;
 
+    display: flex;
+    list-style-type: none;
+    margin-right: 20px;
+  }
+  button{
+    font-size: 18px;
+    color: white;
+    border-radius: 5px;
+    width: 150px;
+    background-color: black;
+  }
+  li{
+    margin: 10px;
+  }
 </style>
-<app-header></app-header>
 <main class="main">
-  <div class="content">
-    <div class="left-side">
-      
-      <h1>Bienvenue sur le Wild Blog de {{ title }}</h1>
-      <p>Congratulations! Your app is running. 🎉</p>
-    </div>
-
-  </div>
+  <header>
+    <span>
+      <app-header></app-header>
+    </span>
+    <nav>
+      <ul>
+        <li><a href="#">Accueil</a></li>
+        <li><a href="#"></a>Articles</li>
+        <li><a href="#">L'Ecole</a></li>
+        <li><a href="#"></a>Contact</li>
+        <button>Me connecter</button>
+      </ul>
+    </nav>
+  </header>
 </main>
 
 

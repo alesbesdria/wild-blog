@@ -4,6 +4,7 @@ import { ArticlePageComponent } from './components/article-page/article-page.com
 import { NotFoundPageComponent } from './components/not-found-page/not-found-page.component';
 import { ArticleListComponent } from './components/article-list-component/article-list.component';
 import { ContactPageComponent } from './components/contact-page/contact-page.component';
+import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 
 export const routes: Routes = [
     { path: '', component: HomePageComponent, pathMatch: 'full' },
@@ -12,6 +13,6 @@ export const routes: Routes = [
     { path: 'articles', component: ArticleListComponent },
 
 
-    // { path: 'contact', component: ContactPageComponent },
+    { path: 'signup', component: SignupPageComponent},
     { path: '**', component: NotFoundPageComponent }
   ];

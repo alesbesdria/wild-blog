@@ -1,19 +1,20 @@
 <style>
+  main{
+    margin-left: 40px;
+    margin-right: 40px;
+  }
   a{
     text-decoration: none;
     color: black;
   }
   header{
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
   }
   ul{
-    margin-right: 5px;
     font-size: 20px;
-
     display: flex;
     list-style-type: none;
-    margin-right: 20px;
   }
   button{
     font-size: 18px;
@@ -25,23 +26,40 @@
   li{
     margin: 10px;
   }
+  .nav{
+    display: flex;
+    justify-content: space-between;
+  }
+  h1{
+    font-size: 215px;
+    align-self: center;
+    margin: 0;
+    border-top: 1px black solid;
+    border-bottom: 1px black solid;
+  }
 </style>
 <main class="main">
   <header>
-    <span>
-      <app-header></app-header>
-    </span>
-    <nav>
-      <ul>
-        <li><a href="#">Accueil</a></li>
-        <li><a href="#">Articles</a></li>
-        <li><a href="#">L'Ecole</a></li>
-        <li><a href="#">Contact</a></li>
-        <button>Me connecter</button>
-      </ul>
-    </nav>
+    <section class="nav">
+      <span>
+        <app-header></app-header>
+      </span>
+      <nav>
+  
+        <ul>
+          <li><a [routerLink]="['/']">Accueil</a></li>
+          <li><a [routerLink]="['/articles']">Articles</a> </li>
+          <li><a href="#">L'Ecole</a></li>
+          <li><a href="#">Contact</a></li>
+          <button>Me connecter</button>
+        </ul>
+        
+      </nav>
+    </section>
+
+    <h1>WILD BLOG</h1>
   </header>
-  <app-article-list></app-article-list>
+  
 </main>
 
 

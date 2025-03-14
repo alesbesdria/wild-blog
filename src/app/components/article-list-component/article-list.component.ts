@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Article } from '../../models/article.model';
+import { RouterLink, RouterModule } from '@angular/router';
+// import { ArticlePageComponent } from '../article-page/article-page.component';
 
 @Component({
   selector: 'app-article-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink, RouterModule],
   templateUrl: './article-list.component.html',
   styleUrls: ['./article-list.component.scss']
 })

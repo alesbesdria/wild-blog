@@ -14,7 +14,21 @@ section{
     {{title}}
   </h2>
   <section>
-    {{articles}}
+    
+    <ul>
+      @for (article of articles; track $index) {
+        <li>
+          <img [src]="article.image" [alt]="article.title" />
+<span class="span-style"> {{article.createdAt | date:'dd.MM.yyyy'}} </span>
+<span> {{article.categoryName}} </span>
+<h3>{{ article.title }}</h3>
+<p>{{article.content}}</p>
+<!-- <button (click)="likeButton()">{{article.likeCount}}</button> -->
+          
+        </li>
+      }
+    </ul>
+
   </section>
-  <app-article></app-article>
+  <!-- <app-article></app-article> -->
 </section>

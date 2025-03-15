@@ -2,17 +2,21 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Article } from '../../models/article.model';
 import { RouterLink, RouterModule } from '@angular/router';
+import { ArticleThumbnailComponent } from '../article-thumbnail/article-thumbnail.component';
 // import { ArticlePageComponent } from '../article-page/article-page.component';
 
 @Component({
   selector: 'app-article-list',
   standalone: true,
-  imports: [CommonModule, RouterLink, RouterModule],
+  imports: [CommonModule, RouterLink, RouterModule, ArticleThumbnailComponent],
   templateUrl: './article-list.component.html',
   styleUrls: ['./article-list.component.scss']
 })
 export class ArticleListComponent {
   title = "Articles Populaires";
+/////////////////// MESSAGE PARENT ENFANT
+  messageToChild: string = 'Bonjour depuis le parent !';
+///////////////////
   articles: Article[] = [
     { 
       id: 1,

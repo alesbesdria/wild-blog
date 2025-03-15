@@ -1,12 +1,59 @@
 <!-- /////////////////// MESSAGE PARENT ENFANT -->
 <!-- <p>Message reçu du parent : {{ parentMessage }}</p> -->
 <!-- ///////////////////  -->
+<style>
+    li {
+        display: flex;
+        flex-direction: column;
+    }
+
+    span {
+        margin: 0;
+    }
+    button{
+        width: 150px;
+    }
+    .cat{
+        margin-top: 15px;
+    }
+    h3{
+        margin-top: 5px;
+        margin-right: 15px;
+        margin-bottom: 5px;
+    }
+    p{
+        width: 150px;
+        margin-top: 0;
+        margin-bottom: 50px;
+        margin-right: 20px;
+    }
+</style>
 <li>
     <a [routerLink]="['/articles', article.id]">
-      <img [src]="article.image" [alt]="article.title" />
+        <img [src]="article.image" [alt]="article.title" />
     </a>
-    <span class="span-style"> {{ article.createdAt | date:'dd.MM.yyyy' }} </span>
-    <span> {{ article.categoryName }} </span>
+    <span> {{ article.createdAt | date:'dd.MM.yyyy' }} </span>
+    <!-- <div class="datelike"> -->
+
+
+        <!-- like -->
+        <!-- <div class="likebuton"> -->
+            <button (click)="handleClickLikeBtn(article.id)">{{ article.isLiked ? "🩷" : "🖤" }}</button>
+            <span>{{ article.likeCount }}💖</span>
+        <!-- </div> -->
+    <!-- </div> -->
+
+
+    <span class="cat"> {{ article.categoryName }} </span>
     <h3>{{ article.title }}</h3>
     <p>{{ article.content }}</p>
-  </li>
+</li>
+<!-- id: 1,
+  title: 'Angular 16: Les nouveautés', 
+  content: 'Les nouveautés d\'Angular 16 incluent...', 
+  createdAt: new Date('2023-05-01'),
+  image: 'https://placehold.co/150x150',
+  likeCount: 233,
+  isPublished: true,
+  categoryName: 'Angular',
+  isLiked: false, -->

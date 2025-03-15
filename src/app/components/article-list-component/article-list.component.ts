@@ -1,22 +1,32 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Article } from '../../models/article.model';
-import { RouterLink, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { ArticleThumbnailComponent } from '../article-thumbnail/article-thumbnail.component';
 // import { ArticlePageComponent } from '../article-page/article-page.component';
 
 @Component({
   selector: 'app-article-list',
   standalone: true,
-  imports: [CommonModule, RouterLink, RouterModule, ArticleThumbnailComponent],
+  imports: [CommonModule, RouterModule, ArticleThumbnailComponent],
   templateUrl: './article-list.component.html',
   styleUrls: ['./article-list.component.scss']
 })
 export class ArticleListComponent {
   title = "Articles Populaires";
 /////////////////// MESSAGE PARENT ENFANT
-  messageToChild: string = 'Bonjour depuis le parent !';
+  // messageToChild: string = 'Bonjour depuis le parent !';
 ///////////////////
+
+handleSetIsLiked(articleId: number): void {
+  const article =
+      this.articles.find((article) => article.id === articleId) || null;
+  if (article) {
+      article.isLiked = !article.isLiked;
+      article.likeCount += article.isLiked ? 1 : -1;
+  }
+}
+
   articles: Article[] = [
     { 
       id: 1,
@@ -27,7 +37,7 @@ export class ArticleListComponent {
       likeCount: 233,
       isPublished: true,
       categoryName: 'Angular',
-      isLiked: false,
+      isLiked: true,
     },
     { 
       id: 2,

@@ -4,10 +4,13 @@
     font-size: 40px;
   }
 
-  section {
+   section > ul {
+    list-style-type: none;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    flex-direction: row;
   }
+
 </style>
 <!-- /////////////////// MESSAGE PARENT ENFANT -->
 <!-- <app-article-thumbnail [parentMessage]="messageToChild"></app-article-thumbnail> -->
@@ -17,7 +20,7 @@
   <h2>
     {{title}}
   </h2>
-  <section>
+  <section class="articles">
 
     <ul>
 

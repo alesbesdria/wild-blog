@@ -24,9 +24,17 @@
 
     <ul>
 
-      <li *ngFor="let article of articles">
+      <li *ngFor="let article of articles$ | async">
         <app-article-thumbnail [article]="article"></app-article-thumbnail>
       </li>
+
+      <!-- <li *ngFor="let article of articles$ | async">
+        <app-article-thumbnail [article]="article"></app-article-thumbnail>
+      </li> -->
+
+      <!-- <li *ngFor="let article of articles">
+        <app-article-thumbnail [article]="article"></app-article-thumbnail>
+      </li> -->
 
       <!-- @for (article of articles; track $index) {
       <li>

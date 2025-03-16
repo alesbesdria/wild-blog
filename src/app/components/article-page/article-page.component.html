@@ -6,6 +6,17 @@
 </style>
 
 <span>{{articleId}}</span>
+<p>Article JSON : </p>
+<div *ngIf="article$ | async as article; else loading">
+    <h1>{{ article.title }}</h1>
+    <p><strong>Publié le :</strong> {{ article.createdAt | date }}</p>
+    <img [src]="article.image" alt="{{ article.title }}">
+    <p>{{ article.content }}</p>
+    <p>❤️ {{ article.likeCount }}</p>
+  </div>
+  <ng-template #loading>
+    <p>Chargement de l'article...</p>
+  </ng-template>
 
 <!-- @if (article$| async; as article) {
 <img [src]="article.image" [alt]="article.title" />

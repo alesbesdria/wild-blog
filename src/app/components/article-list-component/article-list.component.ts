@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Article } from '../../models/article.model';
 import { RouterModule } from '@angular/router';
 import { ArticleThumbnailComponent } from '../article-thumbnail/article-thumbnail.component';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 // import { ArticlePageComponent } from '../article-page/article-page.component';
 
 @Component({
@@ -17,6 +19,16 @@ export class ArticleListComponent {
 /////////////////// MESSAGE PARENT ENFANT
   // messageToChild: string = 'Bonjour depuis le parent !';
 ///////////////////
+http = inject(HttpClient);
+articles$!: Observable<Article[]>;
+
+ngOnInit() {
+  this.getArticles();
+}
+
+getArticles(){
+  this.articles$ = this.http.get<Article[]>('http://localhost:3000/articles');
+}
 
 handleSetIsLiked(articleId: number): void {
   const article =

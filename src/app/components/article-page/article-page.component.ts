@@ -8,20 +8,27 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-article-page',
-  imports: [DatePipe, CommonModule],
+  imports: [CommonModule],
   templateUrl: './article-page.component.html',
   styleUrl: './article-page.component.scss'
 })
 export class ArticlePageComponent {
   private route: ActivatedRoute = inject(ActivatedRoute);
-  // private articleService: ArticleService = inject(ArticleService);
+  private articleService: ArticleService = inject(ArticleService);
   articleId!: number;
-  // // article$!: Observable<Article>;
+  article$!: Observable<Article>;
 
   ngOnInit() {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.articleId = Number(params.get('id'));
+      this.getArticleById(this.articleId);
     });
-    // this.article$ = this.articleService.getArticleById(this.articleId);
   }
+  
+  getArticleById(id: number){
+    this.article$ = this.articleService.getArticleById(this.articleId);
+
+  }
+
+
 }

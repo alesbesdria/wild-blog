@@ -5,6 +5,7 @@ import { Observable, switchMap } from 'rxjs';
 import { Article } from '../../models/article.model';
 import { DatePipe } from '@angular/common';
 import { CommonModule } from '@angular/common';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-article-page',
@@ -13,8 +14,11 @@ import { CommonModule } from '@angular/common';
   styleUrl: './article-page.component.scss'
 })
 export class ArticlePageComponent {
+
   private route: ActivatedRoute = inject(ActivatedRoute);
   private articleService: ArticleService = inject(ArticleService);
+  private apiService: ApiService = inject(ApiService);
+
   articleId!: number;
   article$!: Observable<Article>;
 
@@ -25,10 +29,8 @@ export class ArticlePageComponent {
     });
   }
   
-  getArticleById(id: number){
-    this.article$ = this.articleService.getArticleById(this.articleId);
-
+  getArticleById(id: number) {
+    this.article$ = this.apiService.getArticleById(id);  // Utilisation de la méthode getArticleById() du service ApiService
   }
-
 
 }

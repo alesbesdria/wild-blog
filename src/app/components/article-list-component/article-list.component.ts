@@ -18,15 +18,14 @@ import { ApiService } from '../../services/api.service';
 export class ArticleListComponent implements OnInit {
   title = "Articles Populaires";
   http = inject(HttpClient);
-  articles$!: Observable<Article[]>;
+  public articles$!: Observable<Article[]>;
   private apiService = inject(ApiService);
   
   ngOnInit() {
-    this.articles$ = this.apiService.getArticles();  // Utilisation de la méthode getArticles() du service ApiService
+    this.articles$ = this.apiService.getArticles();
   }
 
   handleSetIsLiked(articleId: number): void {
-    // Nous allons d'abord souscrire à l'Observable articles$
     this.articles$.subscribe(articles => {
       const article = articles.find(a => a.id === articleId);
       if (article) {
